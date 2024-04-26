@@ -12,6 +12,4 @@ DOCKER_BUILDKIT=1 docker build \
 docker run -it --rm --net host --privileged \
     -v /dev/shm:/dev/shm \
     -v ./av_novatel_launch:/opt/ros_ws/src/av_novatel_launch \
-    -v ./novatel_gps_driver:/opt/ros_ws/src/novatel_gps_driver \
-    -v ./novatel_gps_msgs:/opt/ros_ws/src/novatel_gps_msgs \
     av_gps:latest
