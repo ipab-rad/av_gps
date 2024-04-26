@@ -16,7 +16,7 @@ RUN apt-get update \
         ros-"$ROS_DISTRO"-swri-math-util \
         ros-"$ROS_DISTRO"-swri-roscpp \
         ros-"$ROS_DISTRO"-swri-serial-util \
-        # Novatel GPS 
+        # Novatel GPS
         ros-"$ROS_DISTRO"-novatel-gps-driver \
         ros-"$ROS_DISTRO"-novatel-gps-msgs \
     && rm -rf /var/lib/apt/lists/*
