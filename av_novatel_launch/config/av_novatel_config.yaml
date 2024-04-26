@@ -1,0 +1,13 @@
+/**:
+    ros__parameters:
+        connection_type: tcp
+        device: 172.31.0.90:3001
+        publish_novatel_positions: True
+        publish_novatel_velocity: True
+        verbose: True
+        imu_sample_rate: -1.0
+        use_binary_messages: True
+        publish_imu_messages: True
+        publish_novatel_psrdop2: True
+        frame_id: gps_antenna_right_sensor
+        imu_frame_id: imu
