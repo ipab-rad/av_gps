@@ -6,6 +6,7 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
 endif()
 
 find_package(ament_cmake_ros REQUIRED)
+find_package(novatel_gps_driver REQUIRED)
 
 # Installation...
 

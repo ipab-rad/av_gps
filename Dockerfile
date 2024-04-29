@@ -11,14 +11,7 @@ RUN sed -i "s/$OLD_MIRROR\|$SEC_MIRROR/$NEW_MIRROR/g" /etc/apt/sources.list
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive \
         apt-get -y --quiet --no-install-recommends install \
-        libpcap0.8-dev \
-        ros-"$ROS_DISTRO"-gps-msgs \
-        ros-"$ROS_DISTRO"-swri-math-util \
-        ros-"$ROS_DISTRO"-swri-roscpp \
-        ros-"$ROS_DISTRO"-swri-serial-util \
-        # Novatel GPS
         ros-"$ROS_DISTRO"-novatel-gps-driver \
-        ros-"$ROS_DISTRO"-novatel-gps-msgs \
     && rm -rf /var/lib/apt/lists/*
 
 # Setup ROS workspace folder
