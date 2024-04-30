@@ -7,8 +7,8 @@ This repository hosts the required environment for running the ROS 2 Novatel GPS
 - **Operating System**: Ubuntu 22.04
 - **ROS Distribution**: Humble Hawksbill
 - **Velodyne Drivers**:
-    - `ros-humble-novatel-gps-driver ` : Manages communication with the Novatel GPS receiver.
-    - `ros-humble-novatel-gps-msgs` : Custom Novatel ROS msgs
+    - `ros-humble-novatel-gps-driver `: Manages communication with the Novatel GPS receiver.
+    - `ros-humble-novatel-gps-msgs`: Custom Novatel ROS msgs
 
     Note: Although the driver versions are not pinned in the Dockerfile, version `4.1.2-1` is the latest release available (via `apt` ) that has been tested on the vehicle sensor.
 
