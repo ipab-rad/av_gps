@@ -12,11 +12,16 @@ RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive \
         apt-get -y --quiet --no-install-recommends install \
         ros-"$ROS_DISTRO"-novatel-gps-driver \
+        # Install Cyclone DDS ROS RMW
+        ros-"$ROS_DISTRO"-rmw-cyclonedds-cpp \
     && rm -rf /var/lib/apt/lists/*
 
 # Setup ROS workspace folder
 ENV ROS_WS /opt/ros_ws
 WORKDIR $ROS_WS
+
+# Set cyclone DDS ROS RMW
+ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 
 # -----------------------------------------------------------------------
 
