@@ -8,6 +8,7 @@ Forthcoming
 * Modify `dev.sh` to avoid overriding `latest` docker tag for convenience
 * Enable colorised ROS log
 * Changing driver namespace from `/sensor/gps/rear` to `/sensor/gps` 
+* Synchronise host time with docker container
 * Contributors: Hector Cruz (hect95)
 
 1.0.0 (2024-04-30)
