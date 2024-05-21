@@ -2,8 +2,8 @@
 Changelog for package av_novatel_launch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.1.0 (2024-05-21)
+------------------
 * Add Cyclone DDS as ROS RMW + high msg throughput configuration
 * Modify `dev.sh` to avoid overriding `latest` docker tag for convenience
 * Enable colorised ROS log
