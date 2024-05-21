@@ -1,6 +1,6 @@
 <launch>
   <group>
-    <push_ros_namespace namespace="/sensor/gps/rear"/>
+    <push_ros_namespace namespace="/sensor/gps"/>
     <node_container pkg="rclcpp_components" exec="component_container" name="novatel_gps_container" namespace="">
       <composable_node pkg="novatel_gps_driver" plugin="novatel_gps_driver::NovatelGpsNode" name="novatel_gps_node" namespace="">
         <remap from="fix" to="nav_sat_fix"/>
