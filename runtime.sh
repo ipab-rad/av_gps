@@ -63,7 +63,8 @@ DOCKER_BUILDKIT=1 docker build \
 
 # Run docker image without volumes
 docker run -it --rm --net host --privileged \
-    -v /dev/shm:/dev/shm \
+    -v /dev:/dev \
+    -v /tmp:/tmp \
     -v /etc/localtime:/etc/localtime:ro \
     $CYCLONE_VOL \
     av_gps:latest $BASH_CMD
