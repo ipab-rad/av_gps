@@ -35,8 +35,8 @@ ENV RCUTILS_COLORIZED_OUTPUT=1
 
 FROM base as prebuilt
 
-# Import novatel launch
-COPY av_novatel_launch $ROS_WS/src/av_novatel_launch
+# Import gps launch
+COPY av_gps_launch $ROS_WS/src/av_gps_launch
 
 # Build code from launch pkg
 RUN . /opt/ros/"$ROS_DISTRO"/setup.sh \
@@ -82,4 +82,4 @@ RUN sed --in-place --expression \
       /ros_entrypoint.sh
 
 # launch ros package
-CMD ["ros2", "launch", "av_novatel_launch", "av_novatel.launch.xml"]
+CMD ["ros2", "launch", "av_gps_launch", "av_gps.launch.xml"]
