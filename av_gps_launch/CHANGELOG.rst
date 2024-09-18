@@ -2,8 +2,8 @@
 Changelog for package av_gps_launch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.2.1 (2024-09-18)
+------------------
 * Rename all av_novatel references to av_gps (`#10 <https://github.com/ipab-rad/av_gps/issues/10>`_)
   - To keep convention, we should abstract and avoid referring to
   specific brands/products when naming software components. Some
