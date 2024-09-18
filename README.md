@@ -6,9 +6,9 @@ This repository hosts the required environment for running the ROS 2 Novatel GPS
 ## Docker container
 - **Operating System**: Ubuntu 22.04
 - **ROS Distribution**: Humble Hawksbill
-- **Velodyne Drivers**:
-    - `ros-humble-novatel-gps-driver `: Manages communication with the Novatel GPS receiver.
-    - `ros-humble-novatel-gps-msgs`: Custom Novatel ROS msgs
+- **Novatel Drivers**:
+    - `ros-humble-novatel-gps-driver `: Manages communication with the Novatel GPS receiver, from [novatel_gps_driver](https://github.com/swri-robotics/novatel_gps_driver)
+    - `ros-humble-novatel-gps-msgs`: Custom Novatel ROS msgs [Included in apt as dependency of `ros-humble-novatel-gps-driver`]
 
     Note: Although the driver versions are not pinned in the Dockerfile, version `4.1.2-1` is the latest release available (via `apt` ) that has been tested on the vehicle sensor.
 
@@ -17,7 +17,7 @@ For more details please see [Dockerfile](./Dockerfile)
 
 ### ROS 2 launcher
 
-The `av_novatel_launch` ROS package contains the required launch files and configuration parameters for launching the driver for a Novatel PwrPak7D GNSS.
+The `av_gps_launch` ROS package contains the required launch files and configuration parameters for launching the driver for a Novatel PwrPak7D GNSS.
 
 
 ## Usage
@@ -43,5 +43,5 @@ Prepare a development setting that reflects local code modifications and simplif
 ./dev.sh
 ```
 
-- **Live Code Synchronization**: Mounts local `av_novatel_launch` directory with the container.
+- **Live Code Synchronization**: Mounts local `av_gps_launch` directory with the container.
 - **Convenience Alias**: The development container features a `colcon_build` alias, which simplifies the ROS2 build process. Executing `colcon_build` runs `colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release` and then sources the `setup.bash` to ensure the environment is updated with the latest build artifacts. This alias enhances productivity by combining build commands and environment setup into a single, easy command.

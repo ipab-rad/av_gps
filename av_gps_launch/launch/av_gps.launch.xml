@@ -5,7 +5,7 @@
       <composable_node pkg="novatel_gps_driver" plugin="novatel_gps_driver::NovatelGpsNode" name="novatel_gps_node" namespace="">
         <remap from="fix" to="nav_sat_fix"/>
         <remap from="gps" to="gps_fix"/>
-        <param from="$(find-pkg-share av_novatel_launch)/config/av_novatel_config.yaml"/>
+        <param from="$(find-pkg-share av_gps_launch)/config/av_gps_config.yaml"/>
       </composable_node>
     </node_container>
   </group>

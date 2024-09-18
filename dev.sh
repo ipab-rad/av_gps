@@ -68,6 +68,6 @@ docker run -it --rm --net host --privileged \
     -v /dev:/dev \
     -v /tmp:/tmp \
     -v /etc/localtime:/etc/localtime:ro \
-    -v ./av_novatel_launch:/opt/ros_ws/src/av_novatel_launch \
+    -v ./av_gps_launch:/opt/ros_ws/src/av_gps_launch \
     $CYCLONE_VOL \
     av_gps:latest-dev $BASH_CMD
