@@ -2,6 +2,15 @@
 Changelog for package av_gps_launch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Rename all av_novatel references to av_gps (`#10 <https://github.com/ipab-rad/av_gps/issues/10>`_)
+  - To keep convention, we should abstract and avoid referring to
+  specific brands/products when naming software components. Some
+  exceptions are allowed such as velodyne/ouster to help differentiate.
+  - Minor fixes to README
+* Contributors: Alejandro Bordallo
+
 1.2.0 (2024-06-05)
 ------------------
 * Add bash args to optionally load local cyclone_dds
