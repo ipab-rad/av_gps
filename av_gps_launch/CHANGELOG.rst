@@ -2,6 +2,12 @@
 Changelog for package av_gps_launch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Enable publishing GPS heading information
+
+* Contributors: Hector Cruz
+
 1.2.1 (2024-09-18)
 ------------------
 * Rename all av_novatel references to av_gps (`#10 <https://github.com/ipab-rad/av_gps/issues/10>`_)
