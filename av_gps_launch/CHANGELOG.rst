@@ -4,7 +4,8 @@ Changelog for package av_gps_launch
 
 Forthcoming
 -----------
-* Enable publishing GPS heading information
+* Enable publishing of GPS heading and meta
+  information
 
 * Contributors: Hector Cruz
 
