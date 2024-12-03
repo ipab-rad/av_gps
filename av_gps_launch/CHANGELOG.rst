@@ -2,8 +2,8 @@
 Changelog for package av_gps_launch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.3.0 (2024-12-03)
+------------------
 * Enable publishing of GPS heading and meta
   information
 
