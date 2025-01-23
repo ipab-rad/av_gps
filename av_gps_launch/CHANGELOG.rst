@@ -2,6 +2,16 @@
 Changelog for package av_gps_launch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Update parameters
+  - Set use_binary_message to false to avoid ASCII parsing warnings
+  - Set publish_imu_messages to false as IMU is not integrated on
+  current GNSS
+  - Define wayt_for_sync to wait for both BESTPOS and BESTVEL messages
+  to arrive before publishing gps_msgs/GPSFix
+* Contributors: Hector Cruz
+
 1.3.0 (2024-12-03)
 ------------------
 * Enable publishing of GPS heading and meta
