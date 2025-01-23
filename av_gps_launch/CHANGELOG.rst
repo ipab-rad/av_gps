@@ -8,7 +8,7 @@ Forthcoming
   - Set use_binary_message to false to avoid ASCII parsing warnings
   - Set publish_imu_messages to false as IMU is not integrated on
   current GNSS
-  - Define wayt_for_sync to wait for both BESTPOS and BESTVEL messages
+  - Define wait_for_sync to wait for both BESTPOS and BESTVEL messages
   to arrive before publishing gps_msgs/GPSFix
 * Contributors: Hector Cruz
 
