@@ -2,8 +2,8 @@
 Changelog for package av_gps_launch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.3.1 (2025-01-23)
+------------------
 * Update parameters
   - Set use_binary_message to false to avoid ASCII parsing warnings
   - Set publish_imu_messages to false as IMU is not integrated on
