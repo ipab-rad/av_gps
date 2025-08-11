@@ -1,9 +1,9 @@
 FROM ros:humble-ros-base-jammy AS base
 
 # Switch to much faster mirror for apt processes
-ENV OLD_MIRROR archive.ubuntu.com
-ENV SEC_MIRROR security.ubuntu.com
-ENV NEW_MIRROR mirror.bytemark.co.uk
+ENV OLD_MIRROR=archive.ubuntu.com
+ENV SEC_MIRROR=security.ubuntu.com
+ENV NEW_MIRROR=mirror.bytemark.co.uk
 
 RUN sed -i "s/$OLD_MIRROR\|$SEC_MIRROR/$NEW_MIRROR/g" /etc/apt/sources.list
 
@@ -11,13 +11,12 @@ RUN sed -i "s/$OLD_MIRROR\|$SEC_MIRROR/$NEW_MIRROR/g" /etc/apt/sources.list
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive \
         apt-get -y --quiet --no-install-recommends install \
-        ros-"$ROS_DISTRO"-novatel-gps-driver \
         # Install Cyclone DDS ROS RMW
         ros-"$ROS_DISTRO"-rmw-cyclonedds-cpp \
     && rm -rf /var/lib/apt/lists/*
 
 # Setup ROS workspace folder
-ENV ROS_WS /opt/ros_ws
+ENV ROS_WS=/opt/ros_ws
 WORKDIR $ROS_WS
 
 # Set cyclone DDS ROS RMW
@@ -33,18 +32,28 @@ ENV RCUTILS_COLORIZED_OUTPUT=1
 
 # -----------------------------------------------------------------------
 
-FROM base as prebuilt
+FROM base AS prebuilt
+
+# Clone fork of novatel driver
+RUN mkdir -p /opt/ros_ws/src \
+    && git clone -b add_logging_throttle https://github.com/ipab-rad/novatel_gps_driver.git src \
+    && apt-get update \
+    && DEBIAN_FRONTEND=noninteractive \
+        rosdep install --from-paths . --ignore-src -y -r \
+    && . /opt/ros/"$ROS_DISTRO"/setup.sh \
+    && colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release \
+    && rm -rf /var/lib/apt/lists/*
 
 # Import gps launch
 COPY av_gps_launch $ROS_WS/src/av_gps_launch
 
 # Build code from launch pkg
 RUN . /opt/ros/"$ROS_DISTRO"/setup.sh \
-    && colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release
+    && colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
 
 # -----------------------------------------------------------------------
 
-FROM base as dev
+FROM prebuilt AS dev
 
 # Install basic dev tools (And clean apt cache afterwards)
 RUN apt-get update \
@@ -70,10 +79,7 @@ CMD ["bash"]
 
 # -----------------------------------------------------------------------
 
-FROM base as runtime
-
-# Copy artifacts/binaries from prebuilt
-COPY --from=prebuilt $ROS_WS/install $ROS_WS/install
+FROM prebuilt AS runtime
 
 # Add command to docker entrypoint to source newly compiled
 #   code when running docker container
