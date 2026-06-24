@@ -1,4 +1,4 @@
-FROM ros:humble-ros-base-jammy AS base
+FROM ros:jazzy-ros-base-noble AS base
 
 # Install key dependencies
 RUN apt-get update \
@@ -24,7 +24,7 @@ FROM base AS prebuilt
 
 # Clone fork of novatel driver
 RUN mkdir -p /opt/ros_ws/src \
-    && git clone -b add_logging_throttle https://github.com/ipab-rad/novatel_gps_driver.git src \
+    && git clone -b add_logging_throttle https://github.com/assistive-autonomy/novatel_gps_driver.git src \
     && apt-get update \
     && DEBIAN_FRONTEND=noninteractive \
         rosdep install --from-paths . --ignore-src -y -r \
