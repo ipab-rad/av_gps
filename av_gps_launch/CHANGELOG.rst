@@ -2,6 +2,10 @@
 Changelog for package av_gps_launch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Jazzy migration
+
 2.0.0 (2026-03-11)
 ------------------
 
